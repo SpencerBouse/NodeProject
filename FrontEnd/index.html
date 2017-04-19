@@ -1,0 +1,52 @@
+<!doctype html>
+<html ng-app='node'>
+
+<head>
+    <title>Shopular</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+
+    <section class="container" ng-controller='TableController as vm' >
+        <h1>shoper</h1>
+        <table ng-class="vm.main" class="col-md-8 table">
+          <thead>
+            <tr>
+                <th>Name</th>
+                <th>ID</th>
+                <th>Age</th>
+                <th>Like JS</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="people in vm.data">
+                <th>{{people.name}}</th>
+                <th>{{people.id}}</th>
+                <th>{{people.age}}</th>
+                <th>{{people.likesJS}}</th>
+            </tr>
+          </tbody>
+        </table>
+        <form class="col-md-6 col-md-offset-3" ng-submit="vm.submitForm(forms.$valid)">
+          <input type="text" placeholder="Name" ng-model="vm.person.name">
+          <input type="number" placeholder="Age" ng-model="vm.person.age">
+          <label>Likes JS</label>
+          <input type="checkbox" class="form-check-input" ng-model="vm.person.likesJS">
+          <button type="submit" class="btn btn-primary">Add</button>
+        </form>
+    </section>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular-route.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular-resource.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src='js/main.js'></script>
+    <script src='js/controllers/mainController.js'></script>
+    <script src='js/services/API.js'></script>
+
+</body>
+
+</html>
